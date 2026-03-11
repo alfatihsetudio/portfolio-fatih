@@ -8,14 +8,14 @@ import { useEffect, useRef, type MouseEvent } from "react";
 
 interface PortfolioCardProps {
   project: PortfolioItem;
-  variant?: "featured" | "grid";
-  className?: string;
+  variant?: "masonry" | "grid";
+  index?: number;
 }
 
 export default function PortfolioCard({
   project,
-  variant = "grid",
-  className,
+  variant = "masonry",
+  index = 0,
 }: PortfolioCardProps) {
   const cardRef = useRef<HTMLAnchorElement>(null);
   const canHoverRef = useRef(false);
@@ -26,7 +26,7 @@ export default function PortfolioCard({
     ).matches;
   }, []);
 
-  const handleMouseMove = (event: MouseEvent<HTMLAnchorElement>) => {
+  const onPointerMove = (event: MouseEvent<HTMLAnchorElement>) => {
     const card = cardRef.current;
 
     if (!card || !canHoverRef.current) {
@@ -38,16 +38,16 @@ export default function PortfolioCard({
     const y = (event.clientY - rect.top) / rect.height - 0.5;
 
     gsap.to(card, {
-      rotateY: x * 6,
-      rotateX: -y * 6,
-      transformPerspective: 900,
+      rotateY: x * 5,
+      rotateX: -y * 4,
+      transformPerspective: 1000,
       transformOrigin: "center",
       duration: 0.45,
       ease: "power2.out",
     });
   };
 
-  const handleMouseLeave = () => {
+  const onPointerLeave = () => {
     const card = cardRef.current;
 
     if (!card || !canHoverRef.current) {
@@ -57,51 +57,47 @@ export default function PortfolioCard({
     gsap.to(card, {
       rotateX: 0,
       rotateY: 0,
-      duration: 0.55,
+      duration: 0.5,
       ease: "power3.out",
     });
   };
 
-  const featured = variant === "featured";
-  const cardTone = featured
-    ? "bg-[linear-gradient(160deg,rgba(27,31,43,0.9),rgba(14,17,24,0.9))]"
-    : "bg-[var(--color-surface)]";
+  const aspect =
+    variant === "masonry"
+      ? index % 5 === 0
+        ? "aspect-[4/5]"
+        : index % 3 === 0
+          ? "aspect-[4/6]"
+          : "aspect-[4/4.8]"
+      : "aspect-[4/5]";
 
   return (
     <Link
       ref={cardRef}
       href={`/portfolio/${project.slug}`}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`portfolio-card group block overflow-hidden rounded-2xl border border-[var(--color-border)] ${cardTone} transition-[transform,border-color,box-shadow] duration-500 hover:border-[rgba(218,173,97,0.5)] hover:shadow-[0_24px_80px_rgba(0,0,0,0.45)] ${className ?? ""}`}
+      onMouseMove={onPointerMove}
+      onMouseLeave={onPointerLeave}
+      className="portfolio-card group mb-5 block break-inside-avoid overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] transition-[transform,border-color,box-shadow] duration-500 hover:border-[rgba(218,173,97,0.55)] hover:shadow-[0_30px_90px_rgba(0,0,0,0.5)]"
     >
-      <div
-        className={`relative overflow-hidden ${featured ? "aspect-[9/11] sm:aspect-[16/19]" : "aspect-[4/5]"}`}
-      >
+      <div className={`relative overflow-hidden ${aspect}`}>
         <Image
           src={project.thumbnail}
           alt={project.title}
           fill
           loading="lazy"
-          sizes={
-            featured
-              ? "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-              : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
-          }
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-      </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent transition-opacity duration-400" />
 
-      <div className={`${featured ? "space-y-2 p-5 sm:p-6" : "space-y-2 p-4 sm:p-5"}`}>
-        <p className="text-xs uppercase tracking-[0.15em] text-[var(--color-accent)]">
-          {project.category}
-        </p>
-        <h3
-          className={`font-display leading-tight font-semibold text-white transition-colors duration-300 group-hover:text-[var(--color-accent)] ${featured ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"}`}
-        >
-          {project.title}
-        </h3>
+        <div className="absolute inset-x-0 bottom-0 p-5 opacity-100 transition-all duration-500 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+          <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-accent)]">
+            {project.category}
+          </p>
+          <h3 className="font-display mt-2 text-2xl font-semibold text-white">
+            {project.title}
+          </h3>
+        </div>
       </div>
     </Link>
   );

@@ -30,3 +30,15 @@ export function getFeaturedPortfolioItems(limit = 3): PortfolioItem[] {
 export function getPortfolioBySlug(slug: string): PortfolioItem | undefined {
   return portfolio.find((item) => item.slug === slug);
 }
+
+export function getNextPortfolioItem(
+  slug: string
+): PortfolioItem | undefined {
+  const currentIndex = portfolio.findIndex((item) => item.slug === slug);
+
+  if (currentIndex < 0) {
+    return undefined;
+  }
+
+  return portfolio[(currentIndex + 1) % portfolio.length];
+}

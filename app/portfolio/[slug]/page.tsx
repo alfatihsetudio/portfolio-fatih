@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import { notFound } from "next/navigation";
 import ProjectDetailView from "@/components/ProjectDetailView";
-import { getPortfolioBySlug, getPortfolioItems } from "@/data/portfolio";
+import {
+  getNextPortfolioItem,
+  getPortfolioBySlug,
+  getPortfolioItems,
+} from "@/data/portfolio";
 
 interface PortfolioDetailPageProps {
   params: Promise<{
@@ -38,10 +44,17 @@ export default async function PortfolioDetailPage({
 }: PortfolioDetailPageProps) {
   const { slug } = await params;
   const project = getPortfolioBySlug(slug);
+  const nextProject = getNextPortfolioItem(slug);
 
   if (!project) {
     notFound();
   }
 
-  return <ProjectDetailView project={project} />;
+  return (
+    <>
+      <Navbar isHome={false} />
+      <ProjectDetailView project={project} nextProject={nextProject} />
+      <Footer />
+    </>
+  );
 }

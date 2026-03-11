@@ -23,39 +23,38 @@ export default function PortfolioGrid({ projects }: PortfolioGridProps) {
     }
 
     const ctx = gsap.context(() => {
-      const heading = section.querySelector("[data-grid-heading]");
+      const heading = section.querySelectorAll("[data-grid-reveal]");
       const cards = section.querySelectorAll(".portfolio-card");
 
-      if (heading) {
-        gsap.fromTo(
-          heading,
-          { autoAlpha: 0, y: 28 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: heading,
-              start: "top 84%",
-              once: true,
-            },
-          }
-        );
-      }
-
       gsap.fromTo(
-        cards,
-        { autoAlpha: 0, y: 30 },
+        heading,
+        { autoAlpha: 0, y: 24 },
         {
           autoAlpha: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.08,
+          duration: 0.9,
+          stagger: 0.1,
           ease: "power3.out",
           scrollTrigger: {
             trigger: section,
-            start: "top 72%",
+            start: "top 78%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        cards,
+        { autoAlpha: 0, y: 34 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.85,
+          stagger: 0.06,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: cards[0],
+            start: "top 86%",
           },
         }
       );
@@ -67,24 +66,29 @@ export default function PortfolioGrid({ projects }: PortfolioGridProps) {
   return (
     <section id="portfolio" ref={sectionRef} className="section-space">
       <div className="container-shell">
-        <div data-grid-heading className="mb-8 flex flex-col gap-5 sm:mb-10 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-accent)]">
-              Full Portfolio
-            </p>
-            <h2 className="font-display mt-3 text-2xl leading-tight font-semibold text-white sm:text-3xl lg:text-4xl">
-              Complete collection.
-            </h2>
-          </div>
-          <p className="max-w-md text-sm leading-relaxed text-zinc-400 sm:text-base">
-            Explore a complete selection of campaign work, documentary moments,
-            and visual design pieces.
+        <div className="mb-8 lg:mb-12">
+          <p
+            data-grid-reveal
+            className="text-xs uppercase tracking-[0.2em] text-[var(--color-accent)]"
+          >
+            Portfolio Gallery
           </p>
+          <h2
+            data-grid-reveal
+            className="font-display mt-3 max-w-4xl text-3xl leading-tight font-semibold text-white sm:text-4xl lg:text-5xl"
+          >
+            A curated archive of cinematic visual stories.
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {projects.map((project) => (
-            <PortfolioCard key={project.id} project={project} />
+        <div className="columns-1 gap-5 md:columns-2 lg:columns-3 xl:columns-4">
+          {projects.map((project, index) => (
+            <PortfolioCard
+              key={project.id}
+              project={project}
+              variant="masonry"
+              index={index}
+            />
           ))}
         </div>
       </div>

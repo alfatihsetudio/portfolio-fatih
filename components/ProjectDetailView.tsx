@@ -12,9 +12,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface ProjectDetailViewProps {
   project: PortfolioItem;
+  nextProject?: PortfolioItem;
 }
 
-export default function ProjectDetailView({ project }: ProjectDetailViewProps) {
+export default function ProjectDetailView({
+  project,
+  nextProject,
+}: ProjectDetailViewProps) {
   const articleRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -59,7 +63,7 @@ export default function ProjectDetailView({ project }: ProjectDetailViewProps) {
 
   return (
     <article ref={articleRef} className="pb-16 lg:pb-24">
-      <section className="relative flex min-h-screen items-end overflow-hidden pb-10 pt-28 sm:pb-14 sm:pt-32">
+      <section className="relative flex min-h-screen items-end overflow-hidden pb-10 pt-32 sm:pb-14 sm:pt-36">
         <div data-detail-hero-image className="absolute inset-0 scale-105">
           <Image
             src={project.images[0] ?? project.thumbnail}
@@ -106,6 +110,26 @@ export default function ProjectDetailView({ project }: ProjectDetailViewProps) {
       <section className="container-shell mt-8">
         <ProjectGallery title={project.title} images={project.images} />
       </section>
+
+      {nextProject ? (
+        <section className="container-shell mt-12 lg:mt-16">
+          <Link
+            href={`/portfolio/${nextProject.slug}`}
+            className="group block rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8"
+          >
+            <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-accent)]">
+              Next Project
+            </p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-white sm:text-3xl">
+              {nextProject.title}
+            </h2>
+            <p className="mt-2 text-sm text-zinc-300">{nextProject.category}</p>
+            <span className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-zinc-100 transition-colors group-hover:text-[var(--color-accent)]">
+              View Next <span aria-hidden>{"->"}</span>
+            </span>
+          </Link>
+        </section>
+      ) : null}
     </article>
   );
 }

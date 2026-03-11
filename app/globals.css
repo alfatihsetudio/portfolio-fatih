@@ -69,3 +69,7 @@ body {
 .scroll-indicator-dot {
   animation: scrollPulse 1.8s ease-in-out infinite;
 }
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
