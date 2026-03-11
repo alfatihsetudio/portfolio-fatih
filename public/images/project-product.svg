@@ -1,0 +1,15 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="p1" x1="0" y1="0" x2="1200" y2="1500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E1418" />
+      <stop offset="1" stop-color="#3D5C59" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#p1)" />
+  <rect x="280" y="260" width="640" height="640" rx="40" stroke="#D6FFF6" stroke-opacity="0.24" stroke-width="4" />
+  <rect x="370" y="350" width="460" height="460" rx="24" fill="#A7E9D4" fill-opacity="0.13" />
+  <path d="M0 1200C290 1110 520 1300 730 1240C940 1180 1060 1010 1200 990V1500H0V1200Z" fill="#071014" fill-opacity="0.68" />
+  <text x="120" y="1390" fill="#D2FFF1" fill-opacity="0.95" font-size="58" font-family="Georgia, serif">
+    Product Motion Series
+  </text>
+</svg>

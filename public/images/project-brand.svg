@@ -1,0 +1,15 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="b1" x1="100" y1="80" x2="1120" y2="1450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101520" />
+      <stop offset="1" stop-color="#2A4A66" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#b1)" />
+  <rect x="110" y="170" width="980" height="760" stroke="#D2E7FF" stroke-opacity="0.2" stroke-width="2" />
+  <circle cx="890" cy="380" r="150" fill="#89B6E0" fill-opacity="0.25" />
+  <path d="M0 1100C280 980 500 1310 740 1180C920 1090 1020 940 1200 900V1500H0V1100Z" fill="#0A0F18" fill-opacity="0.7" />
+  <text x="120" y="1390" fill="#CEE4F8" fill-opacity="0.95" font-size="58" font-family="Georgia, serif">
+    Nusa Brand Film
+  </text>
+</svg>

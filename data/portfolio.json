@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "slug": "wedding-bali",
+    "title": "Wedding Bali",
+    "category": "Wedding Photography",
+    "featured": true,
+    "description": "An intimate destination wedding documented with a cinematic editorial approach, balancing candid emotion and crafted portrait moments.",
+    "thumbnail": "/images/project-wedding.svg",
+    "images": [
+      "/images/project-wedding.svg",
+      "/images/project-editorial.svg",
+      "/images/project-travel.svg"
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "nusa-brand-film",
+    "title": "Nusa Brand Film",
+    "category": "Commercial Videography",
+    "featured": true,
+    "description": "A visual campaign for a luxury lifestyle brand, blending atmospheric location shots and product storytelling with clean cinematic pacing.",
+    "thumbnail": "/images/project-brand.svg",
+    "images": [
+      "/images/project-brand.svg",
+      "/images/project-product.svg",
+      "/images/project-urban.svg"
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "urban-night-story",
+    "title": "Urban Night Story",
+    "category": "Street Editorial",
+    "featured": true,
+    "description": "A moody city narrative focused on contrast, color, and movement. The series explores late-night textures and human expression in modern spaces.",
+    "thumbnail": "/images/project-urban.svg",
+    "images": [
+      "/images/project-urban.svg",
+      "/images/project-editorial.svg",
+      "/images/project-brand.svg"
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "editorial-light-form",
+    "title": "Editorial Light Form",
+    "category": "Fashion Editorial",
+    "description": "A studio-led editorial that emphasizes silhouette, shape, and negative space. Built for magazine layout and campaign adaptation.",
+    "thumbnail": "/images/project-editorial.svg",
+    "images": [
+      "/images/project-editorial.svg",
+      "/images/project-wedding.svg",
+      "/images/project-product.svg"
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "product-motion-series",
+    "title": "Product Motion Series",
+    "category": "Product Photography",
+    "description": "Minimal product compositions designed for e-commerce and social campaigns, with motion-inspired framing and premium visual consistency.",
+    "thumbnail": "/images/project-product.svg",
+    "images": [
+      "/images/project-product.svg",
+      "/images/project-brand.svg",
+      "/images/project-travel.svg"
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "travel-documentary-java",
+    "title": "Travel Documentary Java",
+    "category": "Travel Storytelling",
+    "description": "A documentary-style travel sequence across Java, combining sweeping landscape frames with grounded cultural moments and natural light.",
+    "thumbnail": "/images/project-travel.svg",
+    "images": [
+      "/images/project-travel.svg",
+      "/images/project-wedding.svg",
+      "/images/project-urban.svg"
+    ]
+  }
+]

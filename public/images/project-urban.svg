@@ -1,0 +1,17 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="u1" x1="0" y1="0" x2="1200" y2="1500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17101E" />
+      <stop offset="1" stop-color="#3D315B" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#u1)" />
+  <rect x="200" y="120" width="130" height="1000" fill="#E08BFF" fill-opacity="0.12" />
+  <rect x="430" y="90" width="130" height="1040" fill="#E08BFF" fill-opacity="0.16" />
+  <rect x="660" y="170" width="130" height="960" fill="#E08BFF" fill-opacity="0.2" />
+  <rect x="890" y="130" width="130" height="1020" fill="#E08BFF" fill-opacity="0.14" />
+  <path d="M0 1180C250 1080 540 1330 800 1210C940 1140 1050 980 1200 960V1500H0V1180Z" fill="#0B0810" fill-opacity="0.68" />
+  <text x="120" y="1390" fill="#EBC7FF" fill-opacity="0.95" font-size="58" font-family="Georgia, serif">
+    Urban Night Story
+  </text>
+</svg>

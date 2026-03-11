@@ -1,0 +1,22 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGradient" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#11131B" />
+      <stop offset="0.5" stop-color="#1E2839" />
+      <stop offset="1" stop-color="#5A4930" />
+    </linearGradient>
+    <radialGradient id="heroLight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1300 250) rotate(152.865) scale(660 420)">
+      <stop stop-color="#F2C27A" stop-opacity="0.45" />
+      <stop offset="1" stop-color="#F2C27A" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#heroGradient)" />
+  <rect width="1920" height="1080" fill="url(#heroLight)" />
+  <rect x="0" y="790" width="1920" height="290" fill="#090B10" fill-opacity="0.7" />
+  <path d="M0 760C270 670 430 890 700 780C950 680 1090 760 1260 700C1500 620 1710 760 1920 680V1080H0V760Z" fill="#0D1017" fill-opacity="0.9" />
+  <path d="M180 210H1740" stroke="white" stroke-opacity="0.08" />
+  <path d="M180 860H1740" stroke="white" stroke-opacity="0.08" />
+  <text x="180" y="960" fill="#D9B26A" fill-opacity="0.85" font-size="46" font-family="Georgia, serif" letter-spacing="4">
+    FATIH CREATIVE STUDIO
+  </text>
+</svg>
